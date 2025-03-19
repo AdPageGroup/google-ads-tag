@@ -330,6 +330,8 @@ function addPurchaseData(eventData, mappedData) {
 
   if (data.conversionValue)
     mappedData.conversionValue = makeNumber(data.conversionValue);
+  else if (eventData.total_price)
+    mappedData.conversionValue = makeNumber(eventData.total_price);
   else if (eventData.value)
     mappedData.conversionValue = makeNumber(eventData.value);
   else if (eventData.conversionValue)
@@ -364,10 +366,10 @@ function addUserIdentifiers(eventData, mappedData) {
       eventData.user_data || eventData.user_properties || eventData.user;
   }
 
-  if (data.userDataList) {
+  if (data.userData) {
     let userIdentifiers = [];
 
-    data.userDataList.forEach((d) => {
+    data.userData.forEach((d) => {
       let identifier = {};
 
       identifier[d.name] = hashData(d.name, d.value);

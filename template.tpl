@@ -392,7 +392,7 @@ function addUserIdentifiers(eventData, mappedData) {
   if (usedIdentifiers.indexOf("hashedEmail") === -1 && hashedEmail) {
     userIdentifiersMapped.push({
       hashedEmail: hashData("hashedEmail", hashedEmail),
-      userIdentifierSource: "UNSPECIFIED",
+      userIdentifierSource: "FIRST_PARTY",
     });
   }
 
@@ -416,7 +416,7 @@ function addUserIdentifiers(eventData, mappedData) {
   ) {
     userIdentifiersMapped.push({
       hashedPhoneNumber: hashData("hashedPhoneNumber", hashedPhoneNumber),
-      userIdentifierSource: "UNSPECIFIED",
+      userIdentifierSource: "FIRST_PARTY",
     });
   }
 
